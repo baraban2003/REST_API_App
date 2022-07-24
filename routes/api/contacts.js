@@ -1,6 +1,4 @@
 const express = require("express");
-const contacts = require("../../models/contacts");
-const { createError } = require("../../helpers");
 const ctrl = require("../../controllers/contacts");
 const { ctrlWrapper } = require("../../helpers");
 
