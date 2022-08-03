@@ -1,4 +1,4 @@
-const Contact = require("../../models/contacts");
+const Contact = require("../../models/contact");
 const { createError } = require("../../helpers");
 const { contactAddSchema } = require("../../schemas/contacts");
 
@@ -7,7 +7,8 @@ const addContact = async (req, res) => {
   if (error) {
     throw createError(400, error.message);
   }
-  const result = await Contact.create(req.body);
+  const { id: owner } = req.user;
+  const result = await Contact.create({ ...req.body, owner });
   res.status(201).json(result);
 };
 
