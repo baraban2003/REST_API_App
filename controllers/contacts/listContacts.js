@@ -1,4 +1,3 @@
-const { boolean } = require("joi");
 const Contact = require("../../models/contact");
 
 const listContacts = async (req, res) => {

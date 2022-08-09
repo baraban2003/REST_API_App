@@ -1,6 +1,6 @@
 const Joi = require("joi");
 
-const emailRegexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+const emailRegexp = /[a-z0-9]+@[a-z]+\.[a-z]{2,3}/;
 
 const registerSchema = Joi.object({
   password: Joi.string().min(6).required(),
