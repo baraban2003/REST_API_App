@@ -1,7 +1,7 @@
 const express = require("express");
 const ctrl = require(`../../controllers/auth`);
 const { ctrlWrapper } = require("../../helpers");
-const { auth } = require("../../middlewares");
+const { auth, upload } = require("../../middlewares");
 
 const router = express.Router();
 //sign up
@@ -17,5 +17,13 @@ router.get("/logout", auth, ctrlWrapper(ctrl.logout));
 
 //update subscription
 router.patch("/", auth, ctrlWrapper(ctrl.updateSubscription));
+
+//avatars
+router.patch(
+  "/avatars",
+  auth,
+  upload.single("avatar"),
+  ctrlWrapper(ctrl.setAvatar)
+);
 
 module.exports = router;
