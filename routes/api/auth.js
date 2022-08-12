@@ -6,6 +6,13 @@ const { auth, upload } = require("../../middlewares");
 const router = express.Router();
 //sign up
 router.post("/signup", ctrlWrapper(ctrl.register));
+
+//email sending
+router.get("/verify/:verificationToken", ctrlWrapper(ctrl.verifyEmail));
+
+//resending email
+router.post("/verify/", ctrlWrapper(ctrl.resendVerifyEmail));
+
 //sign in
 router.post("/login", ctrlWrapper(ctrl.login));
 
